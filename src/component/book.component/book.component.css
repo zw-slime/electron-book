@@ -1,0 +1,89 @@
+.perspective {
+    perspective: 800px;
+    transform-style: preserve-3d;
+}
+
+.book-wrap {
+    width: 60px;
+    height: 80px;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.page {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-origin: left;
+    border: 1px solid #1976D2;
+}
+
+.book-cover {
+    background-color: #1976D2;
+    color: #ffffff;
+    animation: roll-cover 6s ease 0s 2 alternate;
+    transform: rotateY(-15deg)
+}
+
+.book-content {
+    background-color: #fff;
+    color: #33363C;
+}
+
+.book-content1 {
+    animation: roll-1 3s ease 3s 2 alternate;
+    transform: rotateY(-5deg)
+}
+
+.book-content2 {
+    animation: roll-2 4s ease 2s 2 alternate;
+    transform: rotateY(-10deg)
+}
+
+.book-content3 {
+    animation: roll-3 5s ease 1s 2 alternate;
+    transform: rotateY(-15deg)
+
+}
+
+@keyframes roll-cover {
+    from {
+        transform: rotateY(-15deg)
+    }
+    to {
+        transform: rotateY(-40deg)
+    }
+}
+
+@keyframes roll-3 {
+    from {
+        transform: rotateY(-15deg)
+    }
+    to {
+        transform: rotateY(-30deg)
+    }
+}
+
+@keyframes roll-2 {
+    from {
+        transform: rotateY(-10deg)
+    }
+    to {
+        transform: rotateY(-20deg)
+    }
+}
+
+@keyframes roll-1 {
+    from {
+        transform: rotateY(-5deg)
+    }
+    to {
+        transform: rotateY(-10deg)
+    }
+}
