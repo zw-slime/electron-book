@@ -66,6 +66,8 @@
     "lint-staged": "^9.2.1",
     "prettier": "^1.18.2",
     "style-loader": "^0.23.1",
+    "stylelint": "^10.1.0",
+    "stylelint-config-standard": "^18.3.0",
     "webpack": "^4.38.0",
     "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.7.2"
@@ -84,6 +86,11 @@
   "lint-staged": {
     "**/*.js": [
       "eslint  --fix --ext .js",
+      "prettier --write",
+      "git add"
+    ],
+    "**/*.css": [
+      "stylelint --fix",
       "prettier --write",
       "git add"
     ]
