@@ -19,7 +19,9 @@
     "preelectron-pack": "yarn build",
     "preelectron-dist": "yarn build",
     "electron-pack": "electron-builder --dir",
-    "electron-dist": "electron-builder"
+    "electron-dist": "electron-builder",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -w -r 0",
+    "lint-staged": "lint-staged"
   },
   "build": {
     "appId": "sunshine.book.app",
@@ -52,15 +54,38 @@
   "devDependencies": {
     "@babel/preset-react": "^7.0.0",
     "clean-webpack-plugin": "^3.0.0",
+    "commitizen": "^4.0.3",
     "css-loader": "^3.1.0",
+    "cz-conventional-changelog": "^3.0.2",
     "electron": "^6.0.0",
     "electron-builder": "^21.2.0",
     "electron-packager": "^14.0.4",
     "file-loader": "^4.1.0",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^3.0.2",
+    "lint-staged": "^9.2.1",
+    "prettier": "^1.18.2",
     "style-loader": "^0.23.1",
     "webpack": "^4.38.0",
     "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.7.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.js": [
+      "eslint  --fix --ext .js",
+      "prettier --write",
+      "git add"
+    ]
   }
 }
